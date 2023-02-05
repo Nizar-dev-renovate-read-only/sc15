@@ -1,0 +1,23 @@
+name: Test
+
+on: 
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+     
+          
+    - name: abc
+      uses: hkusu/status-create-action@v1.0.0
+      with:
+          sha: ${{ github.sha }}
+          state: pending # specify 'error', 'failure', 'pending', or 'success'
+          target-url: http://ci.example.com # default: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          description: Running.. # option
+          context: My Workflow # default: '${{ github.workflow }}'
